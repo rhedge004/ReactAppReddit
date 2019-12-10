@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+const Planets = () => {
+  const [hasError, setErrors] = useState(false);
+  const [data, setData] = useState({});
+
+
+  async function fetchData() {
+      const res = await fetch("https://www.reddit.com/r/anime.json");
+      res
+        .json()
+        .then(res => setData(res))
+        .catch(err => setErrors(err));
+    }
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <span>{JSON.stringify(data)}</span>
+      <hr />
+      <span>Has error: {JSON.stringify(hasError)}</span>
     </div>
   );
-}
-
-export default App;
+};
+export default Planets;
