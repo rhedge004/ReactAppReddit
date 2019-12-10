@@ -5,7 +5,7 @@ const Posts = ({data}) => {
       { console.log(post.data);
         return(
           <>
-            <h3>{post.data.title}</h3>
+            <a href={post.data.url} target='_blank'><h3>{post.data.title}</h3></a>
             <p>{post.data.selftext}</p>
           </>
         );
