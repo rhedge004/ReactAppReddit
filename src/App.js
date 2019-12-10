@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Posts from './components/posts/';
 
-const Planets = () => {
+const Reddit = () => {
   const [hasError, setErrors] = useState(false);
   const [data, setData] = useState({});
 
@@ -15,13 +16,16 @@ const Planets = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(data);
+
+  let postData = (data.data ? Object.values(data.data) : '');
+
   return (
     <div>
-      <span>{JSON.stringify(data)}</span>
+      {/*<span>{JSON.stringify(data)}</span>*/}
+      {(data.data ? <Posts data={postData} /> : <p>Loading...</p>)}
       <hr />
       <span>Has error: {JSON.stringify(hasError)}</span>
     </div>
   );
 };
-export default Planets;
+export default Reddit;
