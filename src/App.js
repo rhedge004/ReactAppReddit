@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Posts from './components/posts/';
+import LoadingScreen from './components/loading/';
 
 const Reddit = () => {
   const [hasError, setErrors] = useState(false);
@@ -22,7 +23,7 @@ const Reddit = () => {
   return (
     <div>
       {/*<span>{JSON.stringify(data)}</span>*/}
-      {(data.data ? <Posts data={postData} /> : <p>Loading...</p>)}
+      {(data.data ? <Posts data={postData} /> : <LoadingScreen />)}
       <hr />
       <span>Has error: {JSON.stringify(hasError)}</span>
     </div>

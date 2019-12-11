@@ -1,20 +1,12 @@
 import React from 'react';
+import Post from './post';
 
 const Posts = ({data}) => {
-    const posts = data[2].map(post =>
-      { console.log(post.data);
-        return(
-          <>
-            <a href={post.data.url} target='_blank'><h3>{post.data.title}</h3></a>
-            <p>{post.data.selftext}</p>
-          </>
-        );
-      }
-    );
+    console.log(data[2]);
     return(
-        <div>
-            {posts}
-        </div>
+        <section>
+            <Post posts={data[2]} />
+        </section>
     )
 };
 
