@@ -17,8 +17,8 @@ const Reddit = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  let postData = (data.data ? Object.values(data.data) : '');
+  console.log('All Data:',data);
+  const postData = (data.data ? Object.values(data.data) : '');
 
   return (
     <div>

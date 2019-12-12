@@ -10,4 +10,5 @@ export const PostContainer = styled(Paper)`
 
 export const PostTitle = styled(Link)`
     color:gray;
+    font-size: 20px;
 `;

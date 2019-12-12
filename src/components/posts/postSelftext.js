@@ -1,7 +1,9 @@
 import React from 'react';
 
 const SelfText = (selftext) =>{
-    return();
+    return(
+        <p></p>
+    );
 };
 
 export default SelfText;
